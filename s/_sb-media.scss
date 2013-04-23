@@ -1,0 +1,15 @@
+$default-feature: 'min-width: ' !default;
+$no-mq-support: false !default;
+
+@mixin sbmedia($query) {
+  @if type-of( $query ) == 'number' {
+    $query: $default-feature + $query;
+  }
+  @if $no-mq-support{
+    @content;
+  } @else {
+    @media ( $query ) {
+      @content;
+    }
+  }
+}
