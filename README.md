@@ -38,6 +38,7 @@ The mixin is pretty straightforward. It defaults to `min-width` media queries an
 
 ## An example
 Here is the mixin in action. As you can see, we wrapped the max-width query in quotes.
+
 **_styles.scss**
 ```scss
 body{
