@@ -44,7 +44,7 @@ Here is a default min-width media query. Notice no need to pass min or max-width
 body{
   background-color:red;
 
-  @include sbmedia(40em){
+  @include sb-media(40em){
     background-color: blue;
   }
 }
@@ -80,7 +80,7 @@ As you can see, we wrapped the max-width query in quotes.
 body{
   background-color:red;
 
-  @include sbmedia('max-width: 40em'){
+  @include sb-media('max-width: 40em'){
     background-color: blue;
   }
 }
