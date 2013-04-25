@@ -70,39 +70,3 @@ body {
   }
 }
 ```
-
-
-## Max-width example
-As you can see, we wrapped the max-width query in quotes.
-
-**_primary.scss**
-```scss
-body{
-  background-color:red;
-
-  @include sb-media('max-width: 40em'){
-    background-color: blue;
-  }
-}
-```
-
-The generated max-width css is below.
-
-**no-mq.css**
-```css
-body {
-  background-color: red;
-  background-color: blue;
-}
-```
-**mq.css**
-```css
-body {
-  background-color: red;
-}
-@media (max-width: 40em) {
-  body {
-    background-color: blue;
-  }
-}
-```
