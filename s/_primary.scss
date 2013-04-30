@@ -1,7 +1,7 @@
 body{
   background-color:red;
 
-  @include sb-media('max-width: 40em'){
+  @include sb-media(61em){
     background-color: blue;
   }
 }

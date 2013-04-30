@@ -18,25 +18,26 @@ The two files `no-mq.scss` and `mq.scss` generate two separate stylesheets, one 
 ## The mixin
 **_sb-media.scss**
 ```scss
-$default-feature: 'min-width: ' !default;
 $no-mq-support: false !default;
+$serve-to-nomq-max-width:60em;
 
 @mixin sb-media($query) {
-  @if type-of( $query ) == 'number' {
-    $query: $default-feature + $query;
-  }
   @if $no-mq-support{
-    @content;
+    @if $query < $serve-to-nomq-max-width{
+      @content;
+    }
   } @else {
-    @media ( $query ) {
+    @media ( 'min-width:' + $query ) {
       @content;
     }
   }
 }
 ```
-The mixin is pretty straightforward. It defaults to `min-width` media queries and does not support no-mq browsers. To query for something other than min-width, simply wrap the entire query in quotes. To support no-mq browsers, simply add `$no-mq-support: true;` in your `no-mq.scss` file and import the rest of your project like normal.
+The mixin is pretty straightforward. It defaults to `min-width` media queries and does not support no-mq browsers. To support no-mq browsers, simply add `$no-mq-support: true;` in your `no-mq.scss` file and import the rest of your project like normal.
 
-## Min-width example
+The $no-mq-threshold hides media queries over a certain value from no-mq browsers. In the mixin above it's set to 60em, or 960px. Any media queries over 60ems will get dropped from no-mq.css
+
+## Example
 Here is a default min-width media query. Notice no need to pass min or max-width on the query. Just pass the width value.
 
 **_primary.scss**

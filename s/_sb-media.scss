@@ -1,14 +1,13 @@
-$default-feature: 'min-width: ' !default;
 $no-mq-support: false !default;
+$no-mq-threshold:60em;
 
 @mixin sb-media($query) {
-  @if type-of( $query ) == 'number' {
-    $query: $default-feature + $query;
-  }
   @if $no-mq-support{
-    @content;
+    @if $query < $ no-mq-threshold{
+      @content;
+    }
   } @else {
-    @media ( $query ) {
+    @media ( 'min-width:' + $query ) {
       @content;
     }
   }
