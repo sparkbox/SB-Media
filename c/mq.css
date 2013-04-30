@@ -21,7 +21,7 @@
 body {
   background-color: red;
 }
-@media (max-width: 40em) {
+@media (min-width: 61em) {
   body {
     background-color: blue;
   }
